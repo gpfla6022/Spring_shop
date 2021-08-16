@@ -1,5 +1,6 @@
 package com.yhr.shop.repository;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import com.yhr.shop.domain.Member;
@@ -10,10 +11,24 @@ import javax.persistence.PersistenceUnit;
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor
 public class MemberRepository {
+    /*
+        JPA 에서 제공하는 표준 어노테이션
+        EntityManager를 사용할 수 있다.
+        @PersistenceContext를 사용하여 컨테이너에서 엔티티매니저를 주입받을 수 있다.
+         */
+        //@PersistenceContext
+        private final EntityManager em;
 
-    @PersistenceContext
-    private EntityManager em;
+        // 엔티티 매니저를 Autowired로도 주입받을 수 있다. -> 생성자로 자동으로 주입받을 수 있다.
+        // 마찬가지로 @RequiredArgsConstructor 를 사용할 수 있다.
+        /*
+        @Autowired
+        public MemberRepository(EntityManager em) {
+            this.em = em;
+        }
+        */
 
 /* 엔티티매니저팩도리를 직접 주입 받는 방법
     @PersistenceUnit
