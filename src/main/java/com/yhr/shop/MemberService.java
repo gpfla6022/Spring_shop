@@ -11,15 +11,18 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 @Transactional(readOnly = true) // JPA의 transaction의 옵션으로 readOnly를 부여하면, 조회에서 성능이 최적된다.
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    /*
     @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
+    */
     // LOMBOK을(@AllArgsConstructor ) 이용한다면 Autowired를 제외하고 사용할 수 있다.
     // @RequiredArgsContsructor 를 사용하면 필요한 필드를 갖고있는 생성자를 생성해준다.
     // Spring 에서 필드가 하나있고 Autowired가 유추 가능하다면 따로 명시하지 않아도 자동으로 autowired를 적용한다.

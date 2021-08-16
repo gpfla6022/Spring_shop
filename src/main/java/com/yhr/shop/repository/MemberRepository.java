@@ -37,8 +37,10 @@ public class MemberRepository {
     /*
     회원가입
      */
-    public void  join(Member member) {
+    public Long  join(Member member) {
         em.persist(member);
+
+        return member.getId();
     }
 
     /*
