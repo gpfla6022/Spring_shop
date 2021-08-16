@@ -1,10 +1,10 @@
 package com.yhr.shop;
 
 import com.yhr.shop.repository.MemberRepository;
+import com.yhr.shop.service.MemberService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import com.yhr.shop.domain.Member;
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,7 +17,8 @@ class MemberServiceTest {
     /*
     테스트를 위한 Service와 Repository 주입
      */
-    @Autowired MemberService memberService;
+    @Autowired
+    MemberService memberService;
     @Autowired MemberRepository memberRepository;
 
     @Test

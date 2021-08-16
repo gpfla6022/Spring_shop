@@ -1,4 +1,4 @@
-package com.yhr.shop;
+package com.yhr.shop.service;
 
 import com.yhr.shop.domain.Member;
 import com.yhr.shop.repository.MemberRepository;
